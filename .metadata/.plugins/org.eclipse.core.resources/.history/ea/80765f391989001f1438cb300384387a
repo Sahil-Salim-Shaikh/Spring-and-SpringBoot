@@ -1,0 +1,45 @@
+package com.demo.controllers;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.entities.User;
+import com.demo.services.UserService;
+
+@RestController
+
+public class UserController {
+	
+	@Autowired
+	UserService userService;
+	
+	
+	@PostMapping("/user")
+	public User saveUser(@RequestBody User user)
+	{
+		return userService.saveUser(user);
+	}
+	
+	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<User> getUserById(@PathVariable int id)
+	{
+		Optional<User>user= userService.getuserByIs(id);
+		
+		if (user.isPresent()) {
+			return ResponseEntity.ok(user.get());
+			
+		} else {
+			return ResponseEntity.notFound().build();
+		}
+	}
+
+}

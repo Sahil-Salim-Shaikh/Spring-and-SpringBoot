@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.demo.repository.Repository&apos; to &apos;UserRepository&apos;&#x0D;&#x0A;- Original project: &apos;UserApi&apos;&#x0D;&#x0A;- Original element: &apos;com.demo.repository.Repository&apos;&#x0D;&#x0A;- Renamed element: &apos;com.demo.repository.UserRepository&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Repository&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.demo.repository{Repository.java[Repository" matchStrategy="1" name="UserRepository" qualified="false" references="true" similarDeclarations="false" stamp="1728790108547" textual="false" version="1.0"/>
+</session>

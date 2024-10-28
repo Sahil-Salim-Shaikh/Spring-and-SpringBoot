@@ -1,0 +1,66 @@
+Hibernate project creation steps 
+
+-create maven project
+ 
+-add MySQL,hibernate dependencies in pom.xml file
+
+-create hibernate.cfg.xml file 
+	add hibernate config dtd
+
+-create database in MySQL 
+
+
+-create obj of session factory(interface) in mainapp
+
+	SessionFactory factory=new Configuration().configure().buildSessionFactory();
+
+			or
+	Configuration cfg=new Configuration();
+	cfg.configure(); 	//cfg.configure("hibernate.cfg.xml")
+	SessionFactory factory=cfg.buildSessionFactory();
+
+	
+	
+-create a class eg .Student @entity @id
+
+-add  <mapping class="com.hibernatpractical.Student"/> in hibernate.cfg.xml file
+
+- ceate Student class obj in main app and set values
+	Student st=new student();
+	st.set//
+
+	--to save 
+		Session Session =factory.getCurrentSession();
+
+		session.beginTransaction();
+		session.save(st);
+		session.getTransaction.commit();
+		session.close();
+
+
+
+-commonly used annotation
+
+
+
+-fetch data using get(),load()method
+
+	Configuration cfg = new Configuration();
+	cfg.configure("hibernate.cfg.xml");
+
+// Opening a session factory
+	SessionFactory factory = cfg.buildSessionFactory();
+
+// Opening a session
+	Session session = factory.openSession();
+
+// Fetching and displaying the student data by a custom ID
+	int customStudentIdToFetch = 102; // Set your custom ID here
+	Student fetchedStudent = session.load(Student.class, customStudentIdToFetch); // We can use get/load method to fetch data
+
+	System.out.println(fetchedStudent);
+// Close the session and factory (you may want to do this in finally block or use try-with-resources)
+	session.close();
+	factory.close();
+
+

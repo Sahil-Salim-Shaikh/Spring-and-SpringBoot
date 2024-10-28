@@ -1,0 +1,46 @@
+steps for crud in hibernate
+
+1)Configuration cfg=new configuration();
+	cfg.config(hibernate.cfg.xml); //provide the path of configuration file
+
+2)Create three obj:
+
+- SessionFactory sessionfactory;
+	
+	Sessionfactory creates and manages session objects.
+	it is heavy weight ,theread safe obj.
+	use to configure hibernate and handle connection.	
+
+		
+- Session session;(provide method for db operaation)
+
+	session manages database operation like crud and query .
+	it is a lightweight ,short-lived object used for interactiong with database.
+
+- Transaction transaction;
+
+	transaction controls the boundaries of a database transaction.
+	It is used to begin ,commit ,or rollback changes to ensure data integrity.
+
+
+
+
+
+
+full steps:
+
+
+Configuration cfg=new configuration();
+	
+cfg.config(hibernate.cfg.xml); 
+
+SessionFactory sessionfactory =c fg.buildSessionFactory();
+
+Session session=sessionfactory.openSession();
+
+Transaction transaction = session.beginTransaction();
+
+session.save(student);
+transaction.commit();//only use commit when insert,update,delete
+
+

@@ -1,0 +1,26 @@
+package com.demo.controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.demo.entities.User;
+import com.demo.services.UserService;
+
+import org.springframework.web.bind.annotation.PostMapping;
+
+
+@Controller
+public class MyController {
+	
+	@Autowired
+	private UserService userService;
+	
+	@PostMapping("/user")
+	public User addUserDetails(@RequestBody User user)
+	{
+	return	userService.createUser(user);
+		
+	}
+
+}
